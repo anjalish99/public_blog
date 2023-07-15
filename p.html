@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Public Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    .blog-post {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .blog-post h3 {
+      margin-top: 0;
+    }
+  
+    .blog-post p {
+      margin-bottom: 0;
+    }
+  
+    .blog-post .author {
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h2>Blog Posts</h2>
+  
+  <div id="blogPosts">
+    <!-- Blog posts will be dynamically added here -->
+  </div>
+  
+  <script>
+    // Array of sample blog posts (you can replace this with data fetched from an API)
+    var blogPosts = [
+      {
+        title: "First Blog Post",
+        content: "This is the content of the first blog post.",
+        author: "John Doe"
+      },
+      {
+        title: "Second Blog Post",
+        content: "This is the content of the second blog post.",
+        author: "Jane Smith"
+      },
+      {
+        title: "Third Blog Post",
+        content: "This is the content of the third blog post.",
+        author: "Alex Johnson"
+      }
+    ];
+  
+    // Function to display blog posts
+    function displayBlogPosts() {
+      var blogPostsDiv = document.getElementById("blogPosts");
+  
+      // Clear existing blog posts
+      blogPostsDiv.innerHTML = "";
+  
+      // Iterate through each blog post
+      blogPosts.forEach(function(blogPost) {
+        // Create a new blog post element
+        var blogPostDiv = document.createElement("div");
+        blogPostDiv.className = "blog-post";
+  
+        // Create title element
+        var titleElement = document.createElement("h3");
+        titleElement.textContent = blogPost.title;
+  
+        // Create content element
+        var contentElement = document.createElement("p");
+        contentElement.textContent = blogPost.content;
+  
+        // Create author element
+        var authorElement = document.createElement("p");
+        authorElement.className = "author";
+        authorElement.textContent = "Author: " + blogPost.author;
+  
+        // Append title, content, and author to the blog post element
+        blogPostDiv.appendChild(titleElement);
+        blogPostDiv.appendChild(contentElement);
+        blogPostDiv.appendChild(authorElement);
+  
+        // Append the blog post element to the blog posts container
+        blogPostsDiv.appendChild(blogPostDiv);
+      });
+    }
+  
+    // Display initial blog posts
+    displayBlogPosts();
+  </script>
+</body>
+</html>
